@@ -23,7 +23,7 @@ body{
 .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
 /* Header */
-.site-header{background-color:red;color:white; padding:18px 0}
+.site-header{background-color:#910a0a;color:white; padding:18px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{
     display:grid;
