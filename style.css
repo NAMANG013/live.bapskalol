@@ -1,0 +1,102 @@
+:root{
+    --bg-color: #f7f8fb;
+    --card-bg: rgba(255,255,255,0.9);
+    --accent: #8b1fbf; /* warm purple */
+    --accent-2: #ff6b6b; /* coral */
+    --muted: #6b7280;
+    --container: 1100px;
+}
+
+*{box-sizing: border-box}
+body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background-image: url('bapsbg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));color:#fff;padding:18px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo h1{margin:0;font-size:1.25rem;letter-spacing:0.6px}
+.logo .sub{margin:0;font-size:0.8rem;opacity:0.9}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600;padding:6px 8px;border-radius:8px;transition:background .18s ease}
+.nav a:hover{background:rgba(255,255,255,0.06)}
+.nav a.btn.ghost{padding:8px 12px;border:1px solid rgba(255,255,255,0.18);border-radius:6px}
+
+/* Hero */
+.hero{position:relative;min-height:420px;display:flex;align-items:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.0), rgba(0,0,0,0.35));}
+.hero-content{position:relative;z-index:2;padding:48px 20px}
+.event-card{background:var(--card-bg);padding:28px;border-radius:12px;max-width:720px;margin:0 auto;text-align:left;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
+.event-card h2{margin:0 0 8px;font-size:1.6rem;color:var(--accent)}
+.event-card .lead{margin:0 0 10px;color:var(--muted)}
+.event-card .lead{line-height:1.35}
+.meta{display:flex;gap:12px;color:var(--muted);margin:12px 0;align-items:center}
+.desc{color:#374151;margin-bottom:16px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;transition:transform .15s ease,box-shadow .15s ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 6px 18px rgba(139,31,191,0.14)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(139,31,191,0.18)}
+.btn.ghost{background:transparent;border:1px solid #eee;color:#fff}
+
+/* Video Section */
+.video-section{padding:40px 0}
+.section-title{text-align:left;font-size:1.25rem;margin:0 0 12px;color:#0f172a}
+.video-container{max-width:1000px;margin:12px auto}
+.iframe-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
+.iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+.event-details{margin-top:22px;padding:18px;background:rgba(255,255,255,0.6);border-radius:8px}
+
+/* Footer */
+.site-footer{padding:10px 0;background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(255,255,255,0.0));color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Responsive */
+@media (max-width: 1000px){
+    .header-inner{padding:0 10px}
+    .event-card{max-width:640px;padding:22px}
+    .video-container{max-width:860px}
+}
+
+@media (max-width: 768px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:10px}
+    .nav{width:100%;display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{margin-left:0}
+    .hero{min-height:360px}
+    .event-card{max-width:100%;padding:20px;border-radius:10px}
+    .container{padding:0 16px}
+    .footer-inner{flex-direction:column;align-items:flex-start}
+    .meta{gap:8px}
+}
+
+@media (max-width:480px){
+    /* Compact, touch-friendly mobile layout */
+    .event-card h2{font-size:1.15rem;margin-bottom:6px}
+    .event-card .lead{font-size:0.95rem}
+    .hero{min-height:260px;padding:18px 0}
+    .hero-content{padding:20px 10px}
+    .video-section{padding:18px 0}
+    .iframe-wrap{border-radius:8px}
+    .iframe-wrap iframe{position:initial;inset:0;width:100%;height:20vh;border:0}
+    .iframe-wrap, .video-container{ width:100%;padding:0 8px}
+    .meta{flex-direction:column;align-items:flex-start}
+    /* Make the primary CTA a full-width, easy-to-tap button */
+    .btn.primary{display:block;width:100%;text-align:center;padding:12px 14px;border-radius:10px}
+    .nav{width:100%;display:flex;gap:8px;flex-wrap:wrap}
+    .nav a{flex:1;text-align:center;padding:10px 8px;margin-left:0;background:rgba(255,255,255,0.04)}
+    .logo h1{font-size:1rem}
+    .logo .sub{font-size:0.75rem}
+    .container{padding:0 12px}
+    .footer-inner{flex-direction:column;align-items:center;text-align:center}
+}
+
+/* small accessibility focus states */
+.nav a:focus,.btn:focus{outline:3px solid rgba(139,31,191,0.16);outline-offset:3px}
+
