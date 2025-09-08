@@ -33,7 +33,7 @@ body{
     column-gap:14px;
 }
 .logo img{
-    width:75px;height:75px;padding:px;
+    width:75px;height:75px;padding:4px;box-sizing:content-box;
     /* place image to span both rows so text stacks to the right */
     grid-row: 1 / span 2;
 }
@@ -61,10 +61,11 @@ body{
 /* Video Section */
 .video-section{padding:40px 0}
 .section-title{font-family:"Quicksand", sans-serif; text-align:left;font-size:1.50rem;margin:0px 30px 27px;color:#0f172ad2}
-.video-container{max-width:1000px;margin:12px auto}
-.iframe-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
-.iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-container{max-width:1000px;margin:12px auto;position:relative;z-index:1}
+.iframe-wrap{position:relative;width:100%;padding-top:56.25%;background:#00000000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
+.iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:2}
 
+/* Event Details */
 .event-details{margin-top:22px;padding:18px;background:rgba(255,255,255,0.6);border-radius:8px}
 
 /* Footer */
@@ -95,22 +96,52 @@ body{
     .event-card .lead{font-size:0.95rem}
     .hero{min-height:260px;padding:18px 0}
     .hero-content{padding:20px 10px}
+    .section-title{margin: 27px 80px 27px;font-weight: normal; font-size: 1.25rem; text-align: center;      }
     .video-section{padding:18px 0}
-    .iframe-wrap{border-radius:8px}
-    .section-title{margin: 12px 0 12px;}
-    .iframe-wrap iframe{position:initial;inset:0;width:100%;height:20vh;border:0}
-    .iframe-wrap, .video-container{ width:100%;padding:0 8px}
+    /* Make iframe use full-width 16:9 ratio on mobile */
+    .iframe-wrap{border-radius:8px; padding-top:56.25%; position:relative; overflow:hidden; box-shadow:0 8px 24px rgba(2,6,23,0.12); min-height:200px}
+    .iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0; display:block; z-index:2}
+    .iframe-wrap, .video-container{ width:100%;padding:0 8px; max-width:none}
     .meta{flex-direction:column;align-items:flex-start}
     /* Make the primary CTA a full-width, easy-to-tap button */
     .btn.primary{display:block;width:100%;text-align:center;padding:12px 14px;border-radius:10px}
     .nav{width:100%;display:flex;gap:8px;flex-wrap:wrap}
     .nav a{flex:1;text-align:center;padding:10px 8px;margin-left:0;background:rgba(255,255,255,0.04)}
-    .logo h1{font-size:1rem}
-    .logo .sub{font-size:0.75rem}
-    .container{padding:0 12px}
-    .footer-inner{flex-direction:column;align-items:center;text-align:center}
+    .logo h1{font-size: 0.8rem;}
+    .logo .sub{font-size:0.70rem}
+    .logo img{ display: none}
+    .container{padding:0 10px}
+    .footer-inner{flex-direction:column; font-size:8px; align-items:right;text-align:right}
 }
 
 /* small accessibility focus states */
 .nav a:focus,.btn:focus{outline:3px solid rgba(139,31,191,0.16);outline-offset:3px}
+
+/* Overrides to ensure iframe is visible and responsive */
+.video-container{ position:relative; z-index:1; }
+.iframe-wrap{
+  /* keep 16:9 ratio but ensure a minimum height so it never collapses */
+  position:relative !important;
+  padding-top:56.25% !important;
+  min-height:220px; /* ensures visibility on very small viewports */
+  overflow:hidden;
+  border-radius:10px;
+  background:#000;
+  box-shadow:0 8px 30px rgba(2,6,23,0.12);
+}
+.iframe-wrap iframe{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  border:0 !important;
+  z-index:2 !important;
+}
+
+/* Make sure mobile rules don't accidentally collapse the iframe */
+@media (max-width:480px){
+  .iframe-wrap{ min-height:200px; padding-top:56.25% !important; }
+  .iframe-wrap iframe{ position:absolute !important; height:100% !important; }
+}
 
