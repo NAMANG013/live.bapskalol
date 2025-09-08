@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 :root{
     --bg-color: #f7f8fb;
     --card-bg: rgba(255,255,255,0.9);
@@ -22,10 +23,22 @@ body{
 .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
 /* Header */
-.site-header{background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));color:#fff;padding:18px 0}
+.site-header{background:linear-gradient(180deg, rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0.438));color:#fff;padding:18px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo h1{margin:0;font-size:1.25rem;letter-spacing:0.6px}
-.logo .sub{margin:0;font-size:0.8rem;opacity:0.9}
+.logo{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items:center;
+    column-gap:14px;
+}
+.logo img{
+    width:75px;height:75px;padding:px;
+    /* place image to span both rows so text stacks to the right */
+    grid-row: 1 / span 2;
+}
+.logo h1{margin:0;font-size:1.25rem;letter-spacing:0.6px;grid-column:2}
+.logo .sub{margin:0;font-size:0.8rem;opacity:0.9;grid-column:2}
 .nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600;padding:6px 8px;border-radius:8px;transition:background .18s ease}
 .nav a:hover{background:rgba(255,255,255,0.06)}
 .nav a.btn.ghost{padding:8px 12px;border:1px solid rgba(255,255,255,0.18);border-radius:6px}
@@ -47,7 +60,7 @@ body{
 
 /* Video Section */
 .video-section{padding:40px 0}
-.section-title{text-align:left;font-size:1.25rem;margin:0 0 12px;color:#0f172a}
+.section-title{font-family:"Quicksand", sans-serif; text-align:left;font-size:1.50rem;margin:0px 30px 27px;color:#0f172ad2}
 .video-container{max-width:1000px;margin:12px auto}
 .iframe-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
 .iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -84,6 +97,7 @@ body{
     .hero-content{padding:20px 10px}
     .video-section{padding:18px 0}
     .iframe-wrap{border-radius:8px}
+    .section-title{margin: 12px 0 12px;}
     .iframe-wrap iframe{position:initial;inset:0;width:100%;height:20vh;border:0}
     .iframe-wrap, .video-container{ width:100%;padding:0 8px}
     .meta{flex-direction:column;align-items:flex-start}
